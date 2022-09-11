@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
+const config = require("config");
 
 module.exports = async function () {
-    await mongoose.connect('mongodb://127.0.0.1:27017/ChatApplication');
+    const db=config.get("db")
+    
+    await mongoose.connect(db).then(()=>{console.log("connection eastablished to db")});
     
   
 };
