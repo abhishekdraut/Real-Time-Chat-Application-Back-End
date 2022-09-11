@@ -26,13 +26,13 @@ require('./socket/socketIndex')(io)
 
 
 
-app.listen(3002, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log("app is started on port 3002....................");
+    console.log("app is started on port",process.env.PORT);
   }
 });
-server.listen(3001, () => {
-  console.log("Socket server started on port 3001..................");
+server.listen(process.env.PORT||3001, () => {
+  console.log("Socket server started on 3001");
 });
